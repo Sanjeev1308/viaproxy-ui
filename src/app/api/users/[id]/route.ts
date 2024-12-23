@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from 'next/server';
 import { User } from '@/lib/db/models/user.model';
 import connectDB from '@/lib/db/connect';
@@ -10,7 +11,7 @@ interface RouteParams {
   };
 }
 
-export async function GET(request: NextRequest, { params }: RouteParams) {
+export async function GET(request: NextRequest, { params }: any) {
   try {
     await connectDB();
 
