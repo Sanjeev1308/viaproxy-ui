@@ -29,7 +29,7 @@ export async function GET(request: NextRequest, { params }: any) {
   }
 }
 
-export async function PATCH(request: NextRequest, { params }: RouteParams) {
+export async function PATCH(request: NextRequest, { params }: any) {
   try {
     await connectDB();
 
@@ -66,7 +66,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: RouteParams) {
+export async function DELETE(request: NextRequest, { params }: any) {
   try {
     await connectDB();
 
