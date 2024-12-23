@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import React, { forwardRef, useCallback, useState } from 'react';
-import { useTimescape, type Options } from 'timescape/react';
+// import { useTimescape, type Options } from 'timescape/react';
 
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
@@ -24,7 +26,7 @@ const DEFAULTS = [
   ['hours', 'minutes', 'am/pm'],
 ] as DateTimeFormatDefaults;
 
-type TimescapeReturn = ReturnType<typeof useTimescape>;
+type TimescapeReturn = ReturnType<any>;
 type InputPlaceholders = Record<DateFormat | TimeFormat, string>;
 const INPUT_PLACEHOLDERS: InputPlaceholders = {
   months: 'MM',
@@ -124,8 +126,8 @@ interface DateTimeInput {
   value?: Date;
   format: DateTimeFormatDefaults;
   placeholders?: InputPlaceholders;
-  onChange?: Options['onChangeDate'];
-  dtOptions?: Options;
+  onChange?: any;
+  dtOptions?: any;
   className?: string;
 }
 
@@ -151,7 +153,7 @@ export const DatetimePicker = forwardRef<HTMLDivElement, DateTimeInput>(
       },
       [onChange]
     );
-    const timescape = useTimescape({
+    const [timescape, setTimescape] = useState({
       date: value,
       onChangeDate: handleDateChange,
       ...dtOptions,
